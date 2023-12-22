@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
 @import "./cabecalho.css";
 @import "./card.css";
+@import "./search-bar.css";
 @import "./footer.css";
 
 * {
@@ -15,9 +16,6 @@
   --branco: #ffffff;
   --preto: #000000;
   --cinza1: #7c7c7c;
-  --azul1: rgb(88, 122, 216);
-  --azul2: rgb(111, 143, 231);
-  --azul3: #5b8eaf;
   --vermelho: #f54646;
   --vermelho2: brown;
 }

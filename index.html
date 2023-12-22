@@ -13,7 +13,7 @@
   </head>
   <body>
     <header class="body__cabecalho">
-      <form class="body__box-input">
+      <form class="body__box-input" id="cabecalho__seach-bar">
         <input
           type="text"
           class="body__box-input__search-bar"
@@ -29,7 +29,7 @@
           id="cabecalho__leng-input"
           class="input__ghost-checkbox"
         />
-        <span class="leng-input__title">Idioma</span>
+        <span class="leng-input__title">selecionar idioma</span>
         <label for="cabecalho__leng-input">
           <i class="fa-solid fa-chevron-up"></i>
         </label>
@@ -75,13 +75,13 @@
     </header>
 
     <article class="current-weather-box">
-      <form class="box__input">
+      <form class="body__box-input" id="current-input-city">
         <input
           type="text"
-          class="input__search-bar"
+          class="body__box-input__search-bar"
           placeholder="  Ex: São Paulo,BR"
         />
-        <button class="input__button-submit">
+        <button class="body__box-input__button-submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
@@ -102,13 +102,14 @@
       </section>
       <hr />
       <section class="box__temp-max-min">
-        <div class="temp-max-min__div">
+        <div class="temp-max-min__div div-i">
           <i class="fa-solid fa-temperature-full max-min__icon"></i>
           <span class="max-min__temp">
             <b class="temp-max__value">21</b> &deg;
             <b class="temp__unit">C</b>
           </span>
         </div>
+        <hr class="max-min__hr" />
         <div class="temp-max-min__div">
           <i class="fa-solid fa-temperature-quarter max-min__icon"></i>
           <span class="max-min__temp">

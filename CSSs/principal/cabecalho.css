@@ -4,36 +4,6 @@
   box-shadow: 10px 0 4px var(--preto);
 }
 
-.body__box-input {
-  width: 100%;
-  padding: 1rem;
-  align-self: center;
-  border-bottom: 1px solid var(--cinza1);
-  box-shadow: 10px 0 4px var(--preto);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.body__box-input__search-bar {
-  width: 80%;
-  padding: 0.5rem;
-  border: 1px solid var(--preto);
-  border-radius: 10px 0 0 10px;
-}
-
-.body__box-input__button-submit {
-  padding: 0.5rem;
-  border-radius: 0 10px 10px 0;
-  border: 1px solid var(--preto);
-  border-left: none;
-  background-color: var(--vermelho2);
-}
-
-.body__box-input__button-submit:hover {
-  background-color: var(--vermelho);
-}
-
 .cabecalho__form {
   width: 100%;
   padding: 1rem;
@@ -72,4 +42,50 @@
 
 #cabecalho__temp-unit-input:checked ~ .temp-unit-input__drop-option {
   display: flex;
+}
+
+@media (min-width: 400px) {
+  #cabecalho__seach-bar {
+    display: none;
+  }
+
+  .body__cabecalho {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .cabecalho__form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .leng-input__drop-option,
+  .unit-input__drop-option,
+  .temp-unit-input__drop-option {
+    position: absolute;
+    margin-top: 4rem;
+    border: 1px solid var(--cinza1);
+    width: 35%;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 720px) {
+  .cabecalho__form {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .leng-input__drop-option,
+  .unit-input__drop-option,
+  .temp-unit-input__drop-option {
+    width: 30%;
+    margin-top: 10rem;
+  }
 }

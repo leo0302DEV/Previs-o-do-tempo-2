@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previsão do tempo</title>
+    <link rel="shortcut icon" type="icon" href="./assets/wating.png" />
+    <link rel="stylesheet" href="./CSSs/principal/style.css" />
+    <script
+      src="https://kit.fontawesome.com/b83c1e5cc7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="body__cabecalho">
+      <form class="body__box-input">
+        <input
+          type="text"
+          class="body__box-input__search-bar"
+          placeholder="  Ex: São Paulo,BR"
+        />
+        <button class="body__box-input__button-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <form class="cabecalho__form">
+        <input
+          type="checkbox"
+          id="cabecalho__leng-input"
+          class="input__ghost-checkbox"
+        />
+        <span class="leng-input__title">Idioma</span>
+        <label for="cabecalho__leng-input">
+          <i class="fa-solid fa-chevron-up"></i>
+        </label>
+        <div class="leng-input__drop-option">
+          <label>Portugês <input name="do-name" type="radio" checked /></label>
+          <label>Inglês <input name="do-name" type="radio" /></label>
+          <label>Espanhol <input name="do-name" type="radio" /></label>
+        </div>
+      </form>
+      <form class="cabecalho__form">
+        <input
+          type="checkbox"
+          id="cabecalho__unit-input"
+          class="input__ghost-checkbox"
+        />
+        <span class="leng-input__title">Unidade de medida</span>
+        <label for="cabecalho__unit-input">
+          <i class="fa-solid fa-chevron-up"></i>
+        </label>
+        <div class="unit-input__drop-option">
+          <label
+            >Sistema métrico <input name="do-name" type="radio" checked
+          /></label>
+          <label>Sistema imperial <input name="do-name" type="radio" /></label>
+        </div>
+      </form>
+      <form class="cabecalho__form">
+        <input
+          type="checkbox"
+          id="cabecalho__temp-unit-input"
+          class="input__ghost-checkbox"
+        />
+        <span class="temp-unit-input__title">Medida de temperatura</span>
+        <label for="cabecalho__temp-unit-input">
+          <i class="fa-solid fa-chevron-up"></i>
+        </label>
+        <div class="temp-unit-input__drop-option">
+          <label>Celsius <input name="do-name" type="radio" checked /></label>
+          <label>Fahrenheit <input name="do-name" type="radio" /></label>
+          <label>Kelvin <input name="do-name" type="radio" /></label>
+        </div>
+      </form>
+    </header>
+
+    <article class="current-weather-box">
+      <form class="box__input">
+        <input
+          type="text"
+          class="input__search-bar"
+          placeholder="  Ex: São Paulo,BR"
+        />
+        <button class="input__button-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <span class="box__location">
+        <i class="fa-solid fa-location-pin"></i>
+        <p class="location__name">Sua localização.</p>
+      </span>
+      <section class="box__icon-section">
+        <img
+          class="section__img"
+          src="./assets/wating.png"
+          alt="ìcone de espera por pesquisa, um sol preto e branco, sem preenchimento, sorrindo."
+        />
+        <span class="section__weather-description">
+          Faça uma pesquisa <br />
+          primeiro!
+        </span>
+      </section>
+      <hr />
+      <section class="box__temp-max-min">
+        <div class="temp-max-min__div">
+          <i class="fa-solid fa-temperature-full max-min__icon"></i>
+          <span class="max-min__temp">
+            <b class="temp-max__value">21</b> &deg;
+            <b class="temp__unit">C</b>
+          </span>
+        </div>
+        <div class="temp-max-min__div">
+          <i class="fa-solid fa-temperature-quarter max-min__icon"></i>
+          <span class="max-min__temp">
+            <b class="temp-min__value">16</b> &deg;
+            <b class="temp__unit">C</b>
+          </span>
+        </div>
+      </section>
+      <hr />
+      <section class="box__orther-info">
+        <ul class="orther-info__list">
+          <li class="list__item">
+            <p class="item__title">Vento:</p>
+            <i class="fa-solid fa-wind item__icon"></i>
+            <span class="item__div">
+              <b class="wind__speed-value">2</b>
+              <b class="wind__speed-unit">km/h</b>
+            </span>
+          </li>
+          <li class="list__item">
+            <p class="item__title">Humidade:</p>
+            <i class="fa-solid fa-droplet item__icon"></i>
+            <b class="humidity__level-value">68 %</b>
+          </li>
+          <li class="list__item">
+            <p class="item__title">Pressão:</p>
+            <i class="fa-solid fa-arrows-down-to-line item__icon"></i>
+            <b class="pressure__level-value">1054 hPa</b>
+          </li>
+          <li class="list__item">
+            <p class="item__title">Sensação térmica:</p>
+            <i class="fa-solid fa-child-reaching item__icon"></i>
+            <span class="item__div">
+              <b class="like-temp__value">18 &deg;</b>
+              <b class="temp__unit">C</b>
+            </span>
+          </li>
+          <li class="list__item">
+            <p class="item__title">Visibilidade:</p>
+            <i class="fa-solid fa-eye item__icon"></i>
+            <span class="item__div">
+              <b class="distance__value">10</b>
+              <b class="distance__unit">km</b>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <a href="./more-info.html" class="box__more-info-link">
+        Daqui 4 dias &RightArrow;
+      </a>
+    </article>
+
+    <footer class="body__rodape">
+      <p class="rodape__agrad">Agradecimentos:</p>
+      <a href="https://www.flaticon.com/br/icones-gratis/ensolarado">
+        Ícones criados por Smashicons - Flaticon
+      </a>
+      <p class="rodape__copy">
+        &copy; Leonardo Kramer Nadal, todos os direitos reservados.
+      </p>
+    </footer>
+  </body>
+</html>

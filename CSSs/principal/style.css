@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+@import "./cabecalho.css";
+@import "./card.css";
+@import "./footer.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+:root {
+  --branco: #ffffff;
+  --preto: #000000;
+  --cinza1: #7c7c7c;
+  --azul1: rgb(88, 122, 216);
+  --azul2: rgb(111, 143, 231);
+  --azul3: #5b8eaf;
+  --vermelho: #f54646;
+  --vermelho2: brown;
+}
+
+body {
+  width: 100%;
+}

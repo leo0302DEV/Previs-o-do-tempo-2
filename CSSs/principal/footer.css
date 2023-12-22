@@ -1,0 +1,9 @@
+.body__rodape {
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 10px 0 5px var(--preto);
+}
+
+.rodape__copy {
+  margin-top: 2rem;
+}

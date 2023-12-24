@@ -1,0 +1,14 @@
+.body__cabecalho {
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 5px 0 5px var(--preto);
+}
+
+.cabecalho__come-back-link {
+  font-size: 18px;
+}
+
+.cabecalho__titulo {
+  font-size: 25px;
+  margin-top: 1rem;
+}

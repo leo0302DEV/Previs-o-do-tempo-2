@@ -47,3 +47,45 @@
   justify-content: center;
   gap: 1rem;
 }
+
+@media (min-width: 500px) {
+  .body__main {
+    margin: 0;
+  }
+
+  .main__lista-dias {
+    padding: 2rem;
+  }
+
+  .lista-dias__dia {
+    text-align: center;
+    display: grid;
+    grid-template-areas: "data firstSec secondSec";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+
+  .dia__titulo {
+    font-size: 30px;
+    align-self: center;
+  }
+
+  .dia__icone-section {
+    font-size: 20px;
+  }
+
+  .icone-section__icon {
+    width: 130px;
+  }
+
+  .dia__more-info-section {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 720px) {
+  .icone-section__icon {
+    width: 170px;
+  }
+}

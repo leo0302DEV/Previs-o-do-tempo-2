@@ -12,3 +12,13 @@
   font-size: 25px;
   margin-top: 1rem;
 }
+
+@media (min-width: 500px) {
+  .cabecalho__come-back-link {
+    font-size: 20px;
+  }
+
+  .cabecalho__titulo {
+    font-size: 30px;
+  }
+}

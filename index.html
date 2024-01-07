@@ -10,8 +10,12 @@
       src="https://kit.fontawesome.com/b83c1e5cc7.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./scripts/scriptsPagPrincipal/principal.js" defer></script>
-    <script src="./scripts/doRequest.js" type="module"></script>
+    <script
+      src="./scripts/scriptsPagPrincipal/principal.js"
+      type="module"
+      defer
+    ></script>
+    <script src="./scripts/enableRequest.js" type="module" defer></script>
   </head>
   <body>
     <header class="body__cabecalho">
@@ -19,7 +23,7 @@
         <input
           type="text"
           class="body__box-input__search-bar"
-          placeholder="  Ex: São Paulo,BR"
+          placeholder="  Ex: São Paulo,SP"
         />
         <button class="body__box-input__button-submit">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -36,9 +40,16 @@
           <i class="fa-solid fa-chevron-up"></i>
         </label>
         <div class="leng-input__drop-option">
-          <label>Portugês <input name="do-name" type="radio" checked /></label>
-          <label>Inglês <input name="do-name" type="radio" /></label>
-          <label>Espanhol <input name="do-name" type="radio" /></label>
+          <label
+            >Portugês
+            <input name="do-lang" type="radio" checked data-lang="pt-br"
+          /></label>
+          <label
+            >Inglês <input name="do-lang" type="radio" data-lang="en-us"
+          /></label>
+          <label
+            >Espanhol <input name="do-lang" type="radio" data-lang="es-es"
+          /></label>
         </div>
       </form>
       <form class="cabecalho__form">
@@ -53,9 +64,13 @@
         </label>
         <div class="unit-input__drop-option">
           <label
-            >Sistema métrico <input name="do-name" type="radio" checked
+            >Sistema métrico
+            <input name="do-system" type="radio" checked data-system="true"
           /></label>
-          <label>Sistema imperial <input name="do-name" type="radio" /></label>
+          <label
+            >Sistema imperial
+            <input name="do-system" type="radio" data-system="false"
+          /></label>
         </div>
       </form>
       <form class="cabecalho__form">
@@ -69,21 +84,28 @@
           <i class="fa-solid fa-chevron-up"></i>
         </label>
         <div class="temp-unit-input__drop-option">
-          <label>Celsius <input name="do-name" type="radio" checked /></label>
-          <label>Fahrenheit <input name="do-name" type="radio" /></label>
-          <label>Kelvin <input name="do-name" type="radio" /></label>
+          <label
+            >Celsius
+            <input name="do-unity" type="radio" checked data-unity="false"
+          /></label>
+          <label
+            >Fahrenheit <input name="do-unity" type="radio" data-unity="false"
+          /></label>
+          <label
+            >Kelvin <input name="do-unity" type="radio" data-unity="true"
+          /></label>
         </div>
       </form>
     </header>
 
-    <article class="current-weather-box">
+    <main class="current-weather-box">
       <form class="body__box-input" id="current-input-city">
         <input
           type="text"
           class="body__box-input__search-bar"
-          placeholder="  Ex: São Paulo,BR"
+          placeholder="  Ex: São Paulo,SP"
         />
-        <button class="body__box-input__button-submit">
+        <button class="body__box-input__button-submit" id="button-submit-i">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
@@ -162,7 +184,7 @@
       <a href="./more-info.html" class="box__more-info-link">
         Daqui 4 dias &RightArrow;
       </a>
-    </article>
+    </main>
 
     <footer class="body__rodape">
       <p class="rodape__agrad">Agradecimentos:</p>

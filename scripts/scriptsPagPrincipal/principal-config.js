@@ -1,3 +1,4 @@
+//Factory function is a function that returns an object:
 function catchConfigPreferenses(
   arrLangRadioInput,
   arrSystemRadioInput,

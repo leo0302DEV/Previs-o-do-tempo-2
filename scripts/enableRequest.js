@@ -1,5 +1,5 @@
 import DoSearch from "./doRequest.js";
-import ConfigObject from "./scriptsPagPrincipal/principal.js";
+import ConfigObject from "./scriptsPagPrincipal/principal-config.js";
 
 const searchButton = document.querySelectorAll(
   ".body__box-input__button-submit"

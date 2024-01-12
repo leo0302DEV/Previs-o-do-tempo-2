@@ -60,8 +60,6 @@ searchButton.forEach((button) => {
         return allRelevantInfo;
       })
       .then((allInfoObj) => {
-        console.log(allInfoObj);
-
         SetInfoOnPageMethods.setInfoOnPrincipalPage(
           allInfoObj,
           imgBoxImg,

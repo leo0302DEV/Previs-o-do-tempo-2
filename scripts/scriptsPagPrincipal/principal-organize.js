@@ -1,21 +1,10 @@
+import OrganizeHelpers from "./principal-org-helpers.js";
+
 function setLocalAndTimeInfo(local) {
   const date = new Date();
   const currentDate = date.getDate() + "/" + (date.getMonth() + 1);
 
   return local + " " + currentDate;
-}
-
-function verifyDayNigth() {
-  const currentHour = new Date().getHours();
-
-  if (
-    (currentHour >= 18 && currentHour <= 23) ||
-    (currentHour >= 0 && currentHour <= 5)
-  ) {
-    return "nigth";
-  } else {
-    return "day";
-  }
 }
 
 async function getCurrentDateObject(response) {
@@ -26,7 +15,7 @@ async function getCurrentDateObject(response) {
 async function getIconAndDescriptionInfo(dateObject) {
   const currentHour = new Date().getHours();
 
-  if (verifyDayNigth() === "nigth") {
+  if (OrganizeHelpers.verifyDayNigth() === "nigth") {
     const nightInfo = await dateObject.Night;
     return {
       icon: nightInfo.Icon,
@@ -53,54 +42,42 @@ async function getTemptureInfo(dateObject) {
   };
 }
 
-function helpGetOrtherInfoFunction(timeSet) {
-  const snow = {
-    value: timeSet.Snow.Value,
-    unit: timeSet.Snow.Unit,
-  };
-  const rain = timeSet.PrecipitationProbability;
-  const humidity = timeSet.RelativeHumidity.Average;
-  const wind = {
-    value: timeSet.Wind.Speed.Value,
-    unit: timeSet.Wind.Speed.Unit,
-  };
-
-  const ortherInfoCompletObj = {
-    snow: snow,
-    rain: rain,
-    humidity: humidity,
-    wind: wind,
-  };
-
-  return ortherInfoCompletObj;
-}
-
 async function getOrtherInfo(dateObject) {
   const realFellMax = dateObject.RealFeelTemperature.Maximum.Value;
   const realFellMin = dateObject.RealFeelTemperature.Minimum.Value;
   const realFellAverage = Math.round((realFellMax + realFellMin) / 2);
 
-  if (verifyDayNigth() === "nigth") {
+  if (OrganizeHelpers.verifyDayNigth() === "nigth") {
     const nigthObj = dateObject.Night;
     return {
-      ...helpGetOrtherInfoFunction(nigthObj),
+      ...OrganizeHelpers.helpGetOrtherInfoFunction(nigthObj),
       realFellAverage: realFellAverage,
     };
   } else {
     const dayObj = dateObject.Day;
     return {
-      ...helpGetOrtherInfoFunction(dayObj),
+      ...OrganizeHelpers.helpGetOrtherInfoFunction(dayObj),
       realFellAverage: realFellAverage,
     };
   }
 }
 
+async function returnAllPrincipalInfoObj(weatherData) {
+  const dateObject = await getCurrentDateObject(weatherData);
+  const iconSectionInfo = await getIconAndDescriptionInfo(dateObject);
+  const temptureInfo = await getTemptureInfo(dateObject);
+  const ortherInfo = await getOrtherInfo(dateObject);
+
+  return {
+    iconSectionInfo: iconSectionInfo,
+    tempSectionInfo: temptureInfo,
+    ortherSectionInfo: ortherInfo,
+  };
+}
+
 const PrincipalMethods = {
   setLocalAndTimeInfo,
-  getCurrentDateObject,
-  getIconAndDescriptionInfo,
-  getTemptureInfo,
-  getOrtherInfo,
+  returnAllPrincipalInfoObj,
 };
 
 export default PrincipalMethods;

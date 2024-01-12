@@ -1,11 +1,6 @@
-function catchConfigPreferenses(
-  arrLangRadioInput,
-  arrSystemRadioInput,
-  arrUnityRadioInput
-) {
+function catchConfigPreferenses(arrLangRadioInput, arrSystemRadioInput) {
   let langPreferense;
   let systemPreferense;
-  let unityPreferense;
 
   for (let i = 0; i < arrLangRadioInput.length; i++) {
     if (arrLangRadioInput[i].checked) {
@@ -19,16 +14,9 @@ function catchConfigPreferenses(
     }
   }
 
-  for (let k = 0; k < arrUnityRadioInput.length; k++) {
-    if (arrUnityRadioInput[k].checked) {
-      unityPreferense = arrUnityRadioInput[k].dataset["unity"];
-    }
-  }
-
   return {
     lang: langPreferense,
     system: systemPreferense,
-    unity: unityPreferense,
   };
 }
 

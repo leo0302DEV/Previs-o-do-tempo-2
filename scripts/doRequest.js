@@ -17,7 +17,7 @@ async function searchWeatherData(response, lang, metric) {
     const cityCode = response[0].Key;
 
     const WeatherInfo = await fetch(
-      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityCode}?apikey=${api_key}&language=${lang}&metric=${metric}`
+      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityCode}?apikey=${api_key}&language=${lang}&details=true&metric=${metric}`
     );
     const weatherData = await WeatherInfo.json();
     return weatherData;

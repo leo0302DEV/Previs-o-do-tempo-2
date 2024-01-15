@@ -1,7 +1,7 @@
 import DoSearch from "./doRequest.js";
 import ConfigObject from "./scriptsPagPrincipal/principal-config.js";
 import PrincipalMethods from "./scriptsPagPrincipal/principal-organize.js";
-import SetInfoOnPageMethods from "./scriptsPagPrincipal/principal-setInfoOnPage.js";
+import SetInfoOnPrincipalPageMethods from "./scriptsPagPrincipal/principal-setInfoOnPage.js";
 
 // Variaveis referentes a lógica da requisição
 const searchButton = document.querySelectorAll(
@@ -15,20 +15,20 @@ const textSeartchInput = document.querySelectorAll(
 const langInput = document.getElementsByName("do-lang");
 const systemInput = document.getElementsByName("do-system");
 const locationBox = document.querySelector(".location__name");
-const imgBoxImg = document.querySelector(".section__img");
-const imgBoxDescription = document.querySelector(
-  ".section__weather-description"
-);
-const maxTemp = document.querySelector(".temp-max__value");
-const minTemp = document.querySelector(".temp-min__value");
-const tempUnit = document.querySelectorAll(".temp__unit");
-const humidityLevel = document.querySelector(".humidity__level-value");
-const chuvaProb = document.querySelector(".rain__value");
-const realFellTemp = document.querySelector(".like-temp__value");
-const windSpeed = document.querySelector(".wind__speed-value");
-const windSpeedUnity = document.querySelector(".wind__speed-unit");
-const snowLevel = document.querySelector(".snow__level-value");
-const snowLevelUnity = document.querySelector(".snow__level-unit");
+const HTMLObjElements = {
+  imgBoxImg: document.querySelector(".section__img"),
+  imgBoxDescription: document.querySelector(".section__weather-description"),
+  maxTemp: document.querySelector(".temp-max__value"),
+  minTemp: document.querySelector(".temp-min__value"),
+  tempUnit: document.querySelectorAll(".temp__unit"),
+  humidityLevel: document.querySelector(".humidity__level-value"),
+  chuvaProb: document.querySelector(".rain__value"),
+  realFellTemp: document.querySelector(".like-temp__value"),
+  windSpeed: document.querySelector(".wind__speed-value"),
+  windSpeedUnity: document.querySelector(".wind__speed-unit"),
+  snowLevel: document.querySelector(".snow__level-value"),
+  snowLevelUnity: document.querySelector(".snow__level-unit"),
+};
 
 // variaveis referentes ao documento more-info.html
 
@@ -60,23 +60,15 @@ searchButton.forEach((button) => {
         return allRelevantInfo;
       })
       .then((allInfoObj) => {
-        SetInfoOnPageMethods.setInfoOnPrincipalPage(
+        SetInfoOnPrincipalPageMethods.setInfoOnPrincipalPage(
           allInfoObj,
-          imgBoxImg,
-          imgBoxDescription,
-          maxTemp,
-          minTemp,
-          tempUnit,
-          humidityLevel,
-          chuvaProb,
-          realFellTemp,
-          windSpeed,
-          windSpeedUnity,
-          snowLevel,
-          snowLevelUnity
+          HTMLObjElements
         );
       })
       .catch((err) => {
+        alert(
+          "Ocorreu um erro, verifique se escreveu corretamente o nome da cidade ou tente novamente mais tarde."
+        );
         throw new Error("Parece que houve um erro: " + err);
       });
   });

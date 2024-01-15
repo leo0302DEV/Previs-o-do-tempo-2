@@ -57,39 +57,34 @@ function setPrincipalOrtherInfo(
   );
 }
 
-function setInfoOnPrincipalPage(
-  allInfoObj,
-  imgBoxImg,
-  imgBoxDescription,
-  maxTemp,
-  minTemp,
-  tempUnit,
-  humidityLevel,
-  chuvaProb,
-  realFellTemp,
-  windSpeed,
-  windSpeedUnity,
-  snowLevel,
-  snowLevelUnity
-) {
-  setPrincipalImgBoxInfo(allInfoObj, imgBoxImg, imgBoxDescription);
+function setInfoOnPrincipalPage(allInfoObj, HTMLObjElements) {
+  setPrincipalImgBoxInfo(
+    allInfoObj,
+    HTMLObjElements.imgBoxImg,
+    HTMLObjElements.imgBoxDescription
+  );
 
-  setPrincipalTemptureInfo(allInfoObj, maxTemp, minTemp, tempUnit);
+  setPrincipalTemptureInfo(
+    allInfoObj,
+    HTMLObjElements.maxTemp,
+    HTMLObjElements.minTemp,
+    HTMLObjElements.tempUnit
+  );
 
   setPrincipalOrtherInfo(
     allInfoObj,
-    humidityLevel,
-    chuvaProb,
-    realFellTemp,
-    windSpeed,
-    windSpeedUnity,
-    snowLevel,
-    snowLevelUnity
+    HTMLObjElements.humidityLevel,
+    HTMLObjElements.chuvaProb,
+    HTMLObjElements.realFellTemp,
+    HTMLObjElements.windSpeed,
+    HTMLObjElements.windSpeedUnity,
+    HTMLObjElements.snowLevel,
+    HTMLObjElements.snowLevelUnity
   );
 }
 
-const SetInfoOnPageMethods = {
+const SetInfoOnPrincipalPageMethods = {
   setInfoOnPrincipalPage,
 };
 
-export default SetInfoOnPageMethods;
+export default SetInfoOnPrincipalPageMethods;

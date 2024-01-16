@@ -2,6 +2,7 @@ import DoSearch from "./doRequest.js";
 import ConfigObject from "./scriptsPagPrincipal/principal-config.js";
 import PrincipalMethods from "./scriptsPagPrincipal/principal-organize.js";
 import SetInfoOnPrincipalPageMethods from "./scriptsPagPrincipal/principal-setInfoOnPage.js";
+import secondaryMethods from "./scriptsPagSecundaria/secundario.js";
 
 // Variaveis referentes a lógica da requisição
 const searchButton = document.querySelectorAll(
@@ -30,8 +31,6 @@ const HTMLObjElements = {
   snowLevelUnity: document.querySelector(".snow__level-unit"),
 };
 
-// variaveis referentes ao documento more-info.html
-
 searchButton.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
@@ -56,6 +55,8 @@ searchButton.forEach((button) => {
       .then(async (weatherData) => {
         const allRelevantInfo =
           await PrincipalMethods.returnAllPrincipalInfoObj(weatherData);
+
+        secondaryMethods.returnFourDayObjInfo(weatherData);
 
         return allRelevantInfo;
       })

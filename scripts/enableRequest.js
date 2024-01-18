@@ -56,6 +56,8 @@ searchButton.forEach((button) => {
         const allRelevantInfo =
           await PrincipalMethods.returnAllPrincipalInfoObj(weatherData);
 
+        console.log(allRelevantInfo);
+
         secondaryMethods.returnFourDayObjInfo(weatherData);
 
         return allRelevantInfo;

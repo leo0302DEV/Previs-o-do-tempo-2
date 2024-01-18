@@ -13,6 +13,8 @@ const HTMLelementsObj = {
 const arrDateBox = document.querySelectorAll(".dia__titulo");
 
 function showInfoOnPage(arrDaysInfo, HTMLelementsObj) {
+  let unit;
+
   for (let i = 0; i < 4; i++) {
     const currentObj = arrDaysInfo[i];
 
@@ -23,15 +25,18 @@ function showInfoOnPage(arrDaysInfo, HTMLelementsObj) {
     const rainProb = currentObj.rain;
     const maxTempValue = currentObj.maxTemp.Value;
     const minTempValue = currentObj.minTemp.Value;
-    const unity = currentObj.maxTemp.Unit;
+    unit = currentObj.maxTemp.Unit;
 
     HTMLelementsObj.arrImgBox[i].src = iconPngWay;
     HTMLelementsObj.arrDescriptionBox[i].textContent = iconPhrase;
     HTMLelementsObj.arrMaxTemp[i].textContent = maxTempValue;
     HTMLelementsObj.arrMinTemp[i].textContent = minTempValue;
     HTMLelementsObj.arrRainProb[i].textContent = rainProb;
-    HTMLelementsObj.arrTempUnity[i].textContent = unity;
   }
+
+  HTMLelementsObj.arrTempUnity.forEach((element) => {
+    element.textContent = unit;
+  });
 }
 
 function showDateOnPage(arrDate) {

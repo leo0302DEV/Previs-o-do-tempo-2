@@ -1,6 +1,7 @@
 import SetInfoOnPageHelpers from "../scriptsPagPrincipal/principal-setInfo-helpers.js";
 
-const arrFourDayInfo = JSON.parse(localStorage.getItem("fourDayInfoObj"));
+const localStorageInfo = localStorage.getItem("fourDayInfoObj");
+const arrFourDayInfo = JSON.parse(localStorageInfo);
 
 const HTMLelementsObj = {
   arrImgBox: document.querySelectorAll(".icone-section__icon"),
@@ -12,7 +13,7 @@ const HTMLelementsObj = {
 };
 const arrDateBox = document.querySelectorAll(".dia__titulo");
 
-function showInfoOnPage(arrDaysInfo, HTMLelementsObj) {
+const showInfoOnPage = (arrDaysInfo, HTMLelementsObj) => {
   let unit;
 
   for (let i = 0; i < 4; i++) {
@@ -39,17 +40,17 @@ function showInfoOnPage(arrDaysInfo, HTMLelementsObj) {
   });
 }
 
-function showDateOnPage(arrDate) {
+const showDateOnPage = (arrDate) => {
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth() + 1;
 
   for (let j = 0; j < arrDate.length; j++) {
-    const currentBoxDateContent = arrDate[j];
+    const currentBoxDate = arrDate[j];
     const dayLogic = day + j + 1;
     const date = dayLogic + "/" + month;
 
-    currentBoxDateContent.textContent = date;
+    currentBoxDate.textContent = date;
   }
 }
 

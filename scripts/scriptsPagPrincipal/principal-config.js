@@ -1,4 +1,4 @@
-function catchConfigPreferenses(arrLangRadioInput, arrSystemRadioInput) {
+const catchConfigPreferenses = (arrLangRadioInput, arrSystemRadioInput) => {
   let langPreferense;
   let systemPreferense;
 
@@ -20,7 +20,7 @@ function catchConfigPreferenses(arrLangRadioInput, arrSystemRadioInput) {
   };
 }
 
-function catchSearchtextInputValue(inputTypeText) {
+const catchSearchtextInputValue = (inputTypeText) => {
   let inputValue;
   inputTypeText.forEach((element) => {
     if (element.value !== "") {

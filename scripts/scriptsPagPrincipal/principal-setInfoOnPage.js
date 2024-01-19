@@ -1,6 +1,6 @@
 import SetInfoOnPageHelpers from "./principal-setInfo-helpers.js";
 
-function setPrincipalImgBoxInfo(weatherDataObj, boxImg, imgBoxDescription) {
+const setPrincipalImgBoxInfo = (weatherDataObj, boxImg, imgBoxDescription) => {
   const weather = weatherDataObj.iconSectionInfo;
   const weatherDesc = weather.iconPhrase;
   const weatherIconCode = weather.icon;
@@ -10,7 +10,7 @@ function setPrincipalImgBoxInfo(weatherDataObj, boxImg, imgBoxDescription) {
   boxImg.src = imgSrc;
 }
 
-function setPrincipalTemptureInfo(weatherDataObj, maxTemp, minTemp, tempUnit) {
+const setPrincipalTemptureInfo = (weatherDataObj, maxTemp, minTemp, tempUnit) => {
   const weather = weatherDataObj.tempSectionInfo;
   const tempMax = weather.tempMax;
   const tempMin = weather.tempMin;
@@ -23,7 +23,7 @@ function setPrincipalTemptureInfo(weatherDataObj, maxTemp, minTemp, tempUnit) {
   });
 }
 
-function setPrincipalOrtherInfo(
+const setPrincipalOrtherInfo = (
   weatherDataObj,
   humidityLevel,
   chuvaProb,
@@ -32,7 +32,7 @@ function setPrincipalOrtherInfo(
   windSpeedUnity,
   snowLevel,
   snowLevelUnity
-) {
+) => {
   const weather = weatherDataObj.ortherSectionInfo;
   const humidity = weather.humidity;
   const rain = weather.rain;
@@ -57,7 +57,7 @@ function setPrincipalOrtherInfo(
   );
 }
 
-function setInfoOnPrincipalPage(allInfoObj, HTMLObjElements) {
+const setInfoOnPrincipalPage = (allInfoObj, HTMLObjElements) => {
   setPrincipalImgBoxInfo(
     allInfoObj,
     HTMLObjElements.imgBoxImg,

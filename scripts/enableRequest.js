@@ -2,17 +2,11 @@ import DoSearch from "./doRequest.js";
 import ConfigObject from "./scriptsPagPrincipal/principal-config.js";
 import PrincipalMethods from "./scriptsPagPrincipal/principal-organize.js";
 import SetInfoOnPrincipalPageMethods from "./scriptsPagPrincipal/principal-setInfoOnPage.js";
-import secondaryMethods from "./scriptsPagSecundaria/secundario.js";
+import SecondaryMethods from "./scriptsPagSecundaria/secundario.js";
 
-// Variaveis referentes a lógica da requisição
-const searchButton = document.querySelectorAll(
-  ".body__box-input__button-submit"
-);
-const textSeartchInput = document.querySelectorAll(
-  ".body__box-input__search-bar"
-);
+const searchButton = document.querySelectorAll(".body__box-input__button-submit");
+const textSeartchInput = document.querySelectorAll(".body__box-input__search-bar");
 
-// Variaveis referentes ao documento index.html
 const langInput = document.getElementsByName("do-lang");
 const systemInput = document.getElementsByName("do-system");
 const locationBox = document.querySelector(".location__name");
@@ -34,44 +28,20 @@ const HTMLObjElements = {
 searchButton.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    const seartchInputValue =
-      ConfigObject.catchSearchtextInputValue(textSeartchInput);
-    const configPreferensesObject = ConfigObject.catchConfigPreferenses(
-      langInput,
-      systemInput
-    );
 
-    locationBox.textContent =
-      PrincipalMethods.setLocalAndTimeInfo(seartchInputValue);
+    const inputValue = ConfigObject.catchSearchtextInputValue(textSeartchInput);
+    const configPrefObj = ConfigObject.catchConfigPreferenses(langInput, systemInput);
 
-    DoSearch.searchGeolocateInfo(seartchInputValue)
-      .then((response) => {
-        return DoSearch.searchWeatherData(
-          response,
-          configPreferensesObject.lang,
-          configPreferensesObject.system
-        );
-      })
+    locationBox.textContent = PrincipalMethods.setLocalAndTimeInfo(inputValue);
+
+    DoSearch.returnWeatherDataObj(inputValue, configPrefObj)
       .then(async (weatherData) => {
-        const allRelevantInfo =
-          await PrincipalMethods.returnAllPrincipalInfoObj(weatherData);
-
-        console.log(allRelevantInfo);
-
-        secondaryMethods.returnFourDayObjInfo(weatherData);
-
-        return allRelevantInfo;
-      })
-      .then((allInfoObj) => {
-        SetInfoOnPrincipalPageMethods.setInfoOnPrincipalPage(
-          allInfoObj,
-          HTMLObjElements
-        );
+        const allRelevantInfo = await PrincipalMethods.returnAllPrincipalInfoObj(weatherData);
+        SetInfoOnPrincipalPageMethods.setInfoOnPrincipalPage(allRelevantInfo, HTMLObjElements);
+        SecondaryMethods.returnFourDayObjInfo(weatherData);
       })
       .catch((err) => {
-        alert(
-          "Ocorreu um erro, verifique se escreveu corretamente o nome da cidade ou tente novamente mais tarde."
-        );
+        alert("Ocorreu um erro, verifique se escreveu corretamente o nome da cidade e tente novamente.");
         throw new Error("Parece que houve um erro: " + err);
       });
   });

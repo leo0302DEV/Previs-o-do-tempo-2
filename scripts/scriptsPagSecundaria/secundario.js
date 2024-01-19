@@ -1,12 +1,12 @@
 import OrganizeHelpers from "../scriptsPagPrincipal/principal-org-helpers.js";
 
-function extractFourDaysInfoArr(weatherDataObj) {
+const extractFourDaysInfoArr = (weatherDataObj) => {
   const weatherDataArr = weatherDataObj.DailyForecasts;
   weatherDataArr.shift();
   return weatherDataArr;
 }
 
-function helpReturnIconPhraseAndRainInfo(element) {
+const helpReturnIconPhraseAndRainInfo = (element) => {
   if (OrganizeHelpers.verifyDayNigth() === "day") {
     return {
       iconCode: element.Day.Icon,
@@ -22,7 +22,7 @@ function helpReturnIconPhraseAndRainInfo(element) {
   }
 }
 
-function returnFourDaysInfoObj(argsArr) {
+const returnFourDaysInfoObj = (argsArr) => {
   const fourDayObjs = argsArr.map((element) => {
     const iconPhraseRainObj = helpReturnIconPhraseAndRainInfo(element);
 
@@ -38,7 +38,7 @@ function returnFourDaysInfoObj(argsArr) {
   return fourDayObjs;
 }
 
-function returnFourDayObjInfo(weatherDataObj) {
+const returnFourDayObjInfo = (weatherDataObj) => {
   const fourDayArr = extractFourDaysInfoArr(weatherDataObj);
   const fourDaysInfoObj = returnFourDaysInfoObj(fourDayArr);
   const fourDaysInfoObjStringfied = JSON.stringify(fourDaysInfoObj);
@@ -46,8 +46,8 @@ function returnFourDayObjInfo(weatherDataObj) {
   localStorage.setItem("fourDayInfoObj", fourDaysInfoObjStringfied);
 }
 
-const secondaryMethods = {
+const SecondaryMethods = {
   returnFourDayObjInfo,
 };
 
-export default secondaryMethods;
+export default SecondaryMethods;

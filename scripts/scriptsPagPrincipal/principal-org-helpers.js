@@ -1,4 +1,4 @@
-function verifyDayNigth() {
+const verifyDayNigth = () => {
   const currentHour = new Date().getHours();
 
   if (
@@ -11,7 +11,7 @@ function verifyDayNigth() {
   }
 }
 
-function helpGetOrtherInfoFunction(timeSet) {
+const helpGetOrtherInfoFunction = (timeSet) => {
   const snow = {
     value: timeSet.Snow.Value,
     unit: timeSet.Snow.Unit,

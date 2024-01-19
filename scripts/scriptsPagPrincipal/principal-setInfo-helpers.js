@@ -1,4 +1,4 @@
-function returnIconPngBasedOnCode(iconCode) {
+const returnIconPngBasedOnCode = (iconCode) => {
   switch (iconCode) {
     case 1:
       return "./assets/Dia-ensolarado.png";
@@ -55,7 +55,7 @@ function returnIconPngBasedOnCode(iconCode) {
   }
 }
 
-function returnWindOrganizedSection(speed, unity, windObj) {
+const returnWindOrganizedSection = (speed, unity, windObj) => {
   const windSpeed = windObj.value;
   const windUnity = windObj.unit;
 
@@ -63,7 +63,7 @@ function returnWindOrganizedSection(speed, unity, windObj) {
   unity.textContent = windUnity;
 }
 
-function returnSnowOrganizedSection(level, unity, snowObj) {
+const returnSnowOrganizedSection = (level, unity, snowObj) => {
   const snowLevel = snowObj.value;
   const snowUnity = snowObj.unit;
 

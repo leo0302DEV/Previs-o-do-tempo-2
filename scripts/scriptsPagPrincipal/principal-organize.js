@@ -1,18 +1,18 @@
 import OrganizeHelpers from "./principal-org-helpers.js";
 
-function setLocalAndTimeInfo(local) {
+const setLocalAndTimeInfo = (local) => {
   const date = new Date();
   const currentDate = date.getDate() + "/" + (date.getMonth() + 1);
 
   return local + " " + currentDate;
 }
 
-async function getCurrentDateObject(response) {
+const getCurrentDateObject = async (response) => {
   const currentDateObject = await response.DailyForecasts[0];
   return currentDateObject;
 }
 
-async function getIconAndDescriptionInfo(dateObject) {
+const getIconAndDescriptionInfo = async (dateObject) => {
   const currentHour = new Date().getHours();
 
   if (OrganizeHelpers.verifyDayNigth() === "nigth") {
@@ -30,7 +30,7 @@ async function getIconAndDescriptionInfo(dateObject) {
   }
 }
 
-async function getTemptureInfo(dateObject) {
+const getTemptureInfo = async (dateObject) => {
   const maxTemptureValue = dateObject.Temperature.Maximum.Value;
   const tempUnit = dateObject.Temperature.Maximum.Unit;
   const minTempValue = dateObject.Temperature.Minimum.Value;
@@ -42,7 +42,7 @@ async function getTemptureInfo(dateObject) {
   };
 }
 
-async function getOrtherInfo(dateObject) {
+const getOrtherInfo = async (dateObject) => {
   const realFellMax = dateObject.RealFeelTemperature.Maximum.Value;
   const realFellMin = dateObject.RealFeelTemperature.Minimum.Value;
   const realFellAverage = Math.round((realFellMax + realFellMin) / 2);
@@ -62,7 +62,7 @@ async function getOrtherInfo(dateObject) {
   }
 }
 
-async function returnAllPrincipalInfoObj(weatherData) {
+const returnAllPrincipalInfoObj = async (weatherData) => {
   const dateObject = await getCurrentDateObject(weatherData);
   const iconSectionInfo = await getIconAndDescriptionInfo(dateObject);
   const temptureInfo = await getTemptureInfo(dateObject);
